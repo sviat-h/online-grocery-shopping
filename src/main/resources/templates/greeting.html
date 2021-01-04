@@ -6,9 +6,14 @@
     <title>Main Page</title>
 </head>
 <body>
-<h1>MAIN PAGE</h1>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
+<p th:text="${welcome}"></p>
+<a th:href="@{/main}">Main page</a>
+
+<div sec:authorize="isAuthenticated()">
+    <h1 th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
 </body>
 </html>

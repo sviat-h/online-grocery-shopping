@@ -5,11 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MainController {
+public class GreetingController {
 
-    @GetMapping("/main")
-    public String mainPage(Model model) {
+    @GetMapping("/")
+    public String greetingPage(Model model) {
+        model.addAttribute("welcome", "Welcome to online grocery shopping!");
 
-        return "main";
+        return "greeting";
     }
 }
