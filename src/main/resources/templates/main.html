@@ -21,18 +21,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="/main">All products</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+            <li sec:authorize="hasAuthority('ADMIN')" class="nav-item">
+                <a class="nav-link" href="#">Admin panel</a>
             </li>
         </ul>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
+
+        <a class="nav-link text-capitalize ms-auto me-3" href="#" th:text="${#httpServletRequest.remoteUser}">
+        </a>
+        <form class="me-3" th:action="@{/logout}" method="post">
+            <button class="btn btn-primary btn-sm" type="submit">Sign Out</button>
         </form>
     </div>
 </nav>
 
 <div class="container mt-3">
-
 <h1>MAIN PAGE</h1>
 </div>
 
